@@ -52,5 +52,16 @@ goBtn.addEventListener('click', function (){
 
 });
 
+annBtn.addEventListener('click' , function (){
+    discountType.innerText = "";
+    bottomName.innerText = "";
+    carriageNumber.innerText = "";
+    cpCode.innerText = "";
+    ticketPrice.innerText = "";
+
+    nameSurname.value = "";
+    distance.value = "";
+});
+
 
 
