@@ -18,8 +18,11 @@ goBtn.addEventListener('click', function (){
 
     // Inietto il nome e cognome nella pagina 
     const name = nameSurname.value;
-    console.log(name);
-    bottomName.innerText = name;
+    if (name ===""){
+        bottomName.innerText = "Inserisci il nome e cognome";
+    } else {
+        bottomName.innerText = name;
+    }
     
     // Inietto il numero di carrozza e il CP nella pagina 
     carriageNumber.innerText = carriageRnd;
@@ -27,8 +30,17 @@ goBtn.addEventListener('click', function (){
     
     // Transformo i km in numero e calcolo il prezzo del biglietto 
     const kmToGo = parseInt(distance.value.trim());
-    console.log(kmToGo);
-    let price = (kmToGo * 0.21);
+    console.log( kmToGo);
+
+    if (kmToGo === 0){
+        discountType.innerText = "i km inseriti sono nulli";
+        ticketPrice.innerText = "i km inseriti sono nulli";
+    } else if (isNaN(kmToGo)){ 
+    discountType.innerText = "i km inseriti sono errati";
+    ticketPrice.innerText = "i km inseriti sono errati";
+    }  else { 
+        let price = (kmToGo * 0.21);
+   
     
     // Calcolare tipo di biglietto 
     const optionValue = select.options[select.selectedIndex].value;
@@ -44,12 +56,13 @@ goBtn.addEventListener('click', function (){
         discountType.innerText = "Non hai inserito l'età";
         price = "";
     }
+
     
 
     // Inietto il prezzo del biglietto in pagina 
-    ticketPrice.innerText = price;
+    ticketPrice.innerText = `Il prezzo è ${price} euro`;
 
-
+}
 });
 
 annBtn.addEventListener('click' , function (){
