@@ -18,6 +18,7 @@ goBtn.addEventListener('click', function (){
 
     // Inietto il nome e cognome nella pagina 
     const name = nameSurname.value;
+    console.log(name);
     bottomName.innerText = name;
     
     // Inietto il numero di carrozza e il CP nella pagina 
