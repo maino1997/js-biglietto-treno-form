@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <div class="form">
+        <div class="row">
+
+            <div class="nome">
+                <h3>Nome e Cognome</h3>
+                <input type="text" placeholder="Inserisci nome e cognome" id="top-name">
+            </div>
+            <div class="km">
+                <h3>Km da percorrere</h3>
+                <input type="text" placeholder="inserisci i km da percorrere" id="top-km">
+            </div>
+            <div class="age">
+                <h3>Fascia d'età</h3>
+                <select id="top-age">
+                    <option value="18-65">18-65</option>
+                    <option value="minorenne">minorenne</option>
+                    <option value="over65">over65</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="bottom-row">
+            <button id="go-btn">Genera</button>
+            <button id="ann-btn">Annulla</button>
+        </div>
+      </form>
+      
+      <div class="ticket-info">
+          <h2>DETTAGLIO PASSEGGERI</h2>
+          <div class="row">
+              <div class="bottom-name">
+                  <h2>NOME PASSEGGERO</h2>
+                  <div id="bottom-name-show"></div>
+              </div>
+              <div class="discount">
+                  <h3>Offerta</h3>
+                  <div id="ticket-type-show"></div>
+              </div>
+              <div class="carriage">
+                  <h3>Carrozza</h3>
+                  <div id="carriage-numer-show"></div>
+              </div>
+              <div class="cp-code">
+                  <h3>Codice CP</h3>
+                  <div id="cp-code-show"></div>
+              </div>
+              <div class="ticket-price">
+                  <h3>Costo del biglietto</h3>
+                  <div id="ticket-price-show"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
