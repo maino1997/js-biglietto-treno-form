@@ -40,16 +40,17 @@ goBtn.addEventListener('click', function (){
     ticketPrice.innerText = "i km inseriti sono errati";
     }  else { 
         let price = (kmToGo * 0.21);
-   
+        let discMin = (price / 100) * 20;
+        let discOver = (price / 100) * 40;
     
     // Calcolare tipo di biglietto 
     const optionValue = select.options[select.selectedIndex].value;
     if (optionValue === "minorenne"){
         discountType.innerText = "Biglietto scontato minorenni";
-         price -= (price / 100 * 20);
+         price = price - (discMin);
     } else if (optionValue === "over65"){
         discountType.innerText = "Biglietto scontato over 65";
-         price -= (price / 100 * 40);
+         price = price - (discOver);
     } else if (optionValue === "18-65"){
         discountType.innerText = "Biglietto standard";
     } else{
@@ -60,7 +61,7 @@ goBtn.addEventListener('click', function (){
     
 
     // Inietto il prezzo del biglietto in pagina 
-    ticketPrice.innerText = `Il prezzo è ${price} euro`;
+    ticketPrice.innerText = `Il prezzo è ${price.toFixed(2)} euro`;
 
 }
 });
