@@ -11,8 +11,7 @@ const annBtn = document.getElementById("ann-btn");
 const select = document.getElementById("top-age");
 const bottomSection = document.querySelector(".info-section")
 
-const carriageRnd = Math.floor(Math.random() *100) +1;
-const cpRnd = Math.floor(Math.random() *10000) +1;
+
 
 
 goBtn.addEventListener('click', function (){
@@ -25,7 +24,9 @@ goBtn.addEventListener('click', function (){
         bottomName.innerText = name;
     }
     
-    // Inietto il numero di carrozza e il CP nella pagina 
+    // Creo e Inietto il numero di carrozza e il CP nella pagina 
+    const carriageRnd = Math.floor(Math.random() *100) +1;
+    const cpRnd = Math.floor(Math.random() *10000) +1;
     carriageNumber.innerText = carriageRnd;
     cpCode.innerText = cpRnd;
     
@@ -77,14 +78,31 @@ goBtn.addEventListener('click', function (){
 });
 
 annBtn.addEventListener('click' , function (){
-    discountType.innerText = "";
-    bottomName.innerText = "";
-    carriageNumber.innerText = "";
-    cpCode.innerText = "";
-    ticketPrice.innerText = "";
+    // discountType.innerText = "";
+    // bottomName.innerText = "";
+    // carriageNumber.innerText = "";
+    // cpCode.innerText = "";
+    // ticketPrice.innerText = "";
 
-    nameSurname.value = "";
-    distance.value = "";
+    // nameSurname.value = "";
+    // distance.value = "";
+
+    const field = document.querySelectorAll(".field");
+    console.log(field);
+
+
+    // Così selezionerei un singolo input dalla lista risultato della queryselectorall
+    field[1].value = "";
+    console.log(field[1]);
+    
+
+    // Cosi invece porto a stringa vuota tutti gli elementi della lista della queryselectorall 
+    for (let i=0 ; i<field.length; i++){
+        const currentField = field[i];
+        currentField.value = "";
+    }
+
+    select.value = "18-65";
 
 
     // Faccio scomparire la sezionee ticket-info
