@@ -9,7 +9,7 @@ const ticketPrice = document.getElementById("ticket-price-show");
 const goBtn = document.getElementById("go-btn");
 const annBtn = document.getElementById("ann-btn");
 const select = document.getElementById("top-age");
-const bottomSection = document.querySelector(".ticket-info")
+const bottomSection = document.querySelector(".info-section")
 
 const carriageRnd = Math.floor(Math.random() *100) +1;
 const cpRnd = Math.floor(Math.random() *10000) +1;
@@ -33,20 +33,24 @@ goBtn.addEventListener('click', function (){
     const kmToGo = parseInt(distance.value.trim());
     console.log( kmToGo);
 
-    if (kmToGo === 0){
+    if (kmToGo == ""){
         discountType.innerText = "i km inseriti sono nulli";
         ticketPrice.innerText = "i km inseriti sono nulli";
+        bottomSection.classList.remove("d-none");
+        bottomSection.classList.add("show");
     } else if (isNaN(kmToGo)){ 
         discountType.innerText = "i km inseriti sono errati";
         ticketPrice.innerText = "i km inseriti sono errati";
+        bottomSection.classList.remove("d-none");
+        bottomSection.classList.add("show");
     }  else { 
         let price = (kmToGo * 0.21);
         let discMin = (price / 100) * 20;
         let discOver = (price / 100) * 40;
     
     // Calcolare tipo di biglietto 
-    const optionValue = select.options[select.selectedIndex].value;
-    if (optionValue === "minorenne"){
+    const optionValue = select.value;
+    if ((optionValue) === "minorenne"){
         discountType.innerText = "Biglietto scontato minorenni";
          price = price - (discMin);
     } else if (optionValue === "over65"){
