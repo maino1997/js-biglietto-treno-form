@@ -9,6 +9,7 @@ const ticketPrice = document.getElementById("ticket-price-show");
 const goBtn = document.getElementById("go-btn");
 const annBtn = document.getElementById("ann-btn");
 const select = document.getElementById("top-age");
+const bottomSection = document.querySelector(".ticket-info")
 
 const carriageRnd = Math.floor(Math.random() *100) +1;
 const cpRnd = Math.floor(Math.random() *10000) +1;
@@ -36,8 +37,8 @@ goBtn.addEventListener('click', function (){
         discountType.innerText = "i km inseriti sono nulli";
         ticketPrice.innerText = "i km inseriti sono nulli";
     } else if (isNaN(kmToGo)){ 
-    discountType.innerText = "i km inseriti sono errati";
-    ticketPrice.innerText = "i km inseriti sono errati";
+        discountType.innerText = "i km inseriti sono errati";
+        ticketPrice.innerText = "i km inseriti sono errati";
     }  else { 
         let price = (kmToGo * 0.21);
         let discMin = (price / 100) * 20;
@@ -63,6 +64,11 @@ goBtn.addEventListener('click', function (){
     // Inietto il prezzo del biglietto in pagina 
     ticketPrice.innerText = `Il prezzo è ${price.toFixed(2)} euro`;
 
+
+    // Faccio apparire la sezione ticket-info 
+    bottomSection.classList.remove("d-none");
+    bottomSection.classList.add("show");
+    
 }
 });
 
@@ -75,6 +81,11 @@ annBtn.addEventListener('click' , function (){
 
     nameSurname.value = "";
     distance.value = "";
+
+
+    // Faccio scomparire la sezionee ticket-info
+    bottomSection.classList.remove("show");
+    bottomSection.classList.add("d-none");
 });
 
 

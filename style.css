@@ -15,6 +15,13 @@ body{
     margin: auto;
 }
 
+.d-none{
+    display: none;
+}
+
+.show{
+    display: block;
+}
 
 .form{
     padding: 20px;
