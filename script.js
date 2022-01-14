@@ -34,21 +34,30 @@ goBtn.addEventListener('click', function (){
     const kmToGo = parseInt(distance.value.trim());
     console.log( kmToGo);
 
-    if (kmToGo == ""){
+    let isValid = true;
+    let price = 0;
+
+    if (kmToGo <= 0){
         discountType.innerText = "i km inseriti sono nulli";
         ticketPrice.innerText = "i km inseriti sono nulli";
-        bottomSection.classList.remove("d-none");
-        bottomSection.classList.add("show");
-    } else if (isNaN(kmToGo)){ 
+       isValid = false;
+    }  else if (isNaN(kmToGo)){ 
         discountType.innerText = "i km inseriti sono errati";
         ticketPrice.innerText = "i km inseriti sono errati";
+        isValid = false;
         bottomSection.classList.remove("d-none");
         bottomSection.classList.add("show");
-    }  else { 
-        let price = (kmToGo * 0.21);
+    }  else  { 
+        price = (kmToGo * 0.21);
         let discMin = (price / 100) * 20;
         let discOver = (price / 100) * 40;
-    
+    }
+
+    if (isValid === false){
+        return;
+    }
+
+
     // Calcolare tipo di biglietto 
     const optionValue = select.value;
     if ((optionValue) === "minorenne"){
@@ -61,7 +70,7 @@ goBtn.addEventListener('click', function (){
         discountType.innerText = "Biglietto standard";
     } else{
         discountType.innerText = "Non hai inserito l'età";
-        price = "";
+        price = 0;
     }
 
     
@@ -73,8 +82,8 @@ goBtn.addEventListener('click', function (){
     // Faccio apparire la sezione ticket-info 
     bottomSection.classList.remove("d-none");
     bottomSection.classList.add("show");
-    
-}
+
+
 });
 
 annBtn.addEventListener('click' , function (){
